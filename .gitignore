@@ -1,0 +1,4 @@
+**/.testmondata
+.testmondata
+.pytest_cache/**
+**/__pycache__

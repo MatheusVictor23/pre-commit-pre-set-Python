@@ -1,0 +1,15 @@
+repos:
+- repo: local
+  hooks:
+    - id: pytest-testmon
+      name: pytest-testmon
+      entry: pytest --testmon
+      language: python
+      pass_filenames: false
+      files: \.(py)$ 
+      stages: [pre-commit]
+      additional_dependencies:
+          - pytest
+          - pytest-testmon
+      python_version: python3.10
+      verbose: true

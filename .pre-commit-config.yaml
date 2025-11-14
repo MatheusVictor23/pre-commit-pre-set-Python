@@ -1,15 +1,21 @@
 repos:
+  # define um repositório de hooks locais
 - repo: local
   hooks:
+    # identificadores do hook
     - id: pytest-testmon
       name: pytest-testmon
-      entry: pytest --testmon
+      # Ambiente isolado
       language: python
-      pass_filenames: false
       files: \.(py)$ 
-      stages: [pre-commit]
       additional_dependencies:
           - pytest
           - pytest-testmon
       python_version: python3.10
+      # garante que o Testmon selecione os testes, e não o pre-commit
+      pass_filenames: false
+      # saída detalhada do pre-commit no terminal
       verbose: true
+      # comando de execução do Pytest com Testmon
+      entry: pytest --testmon
+      stages: [pre-commit]
